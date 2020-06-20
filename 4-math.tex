@@ -1,0 +1,77 @@
+\section{What are the mathematical foundations of a ConvNet?}
+\label{sec:math}
+
+There are a couple of mathematical functions that ConvNets are built upon. We will discuss the important ones in this section.
+
+\subsection{Convolution integral}
+
+The functionality that gives convolutional neural networks its name, is the convolution operation. The operation is a way to blend two functions together \cite{wolf} and can be used continuously or discretely. It is often denoted by the symbol $*$. A possible definition for the continous case is:
+
+\begin{equation}\label{eq:convo}
+    [f * g] (t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau) d\tau.
+\end{equation}
+
+The first mathematician to have written down a convolution was presumably D'Alembert in 1754 \cite{tor}, albeit in a different form. In 1807, Fourier used a convolution in a form similar to equation \eqref{eq:convo}. To get a sense of the idea behind a convolution let us look at an enlightening example, paraphrased from \cite[Ch. 9]{dl-book}:\\
+
+\textit{Suppose we are tracking the location of a spaceship with a continuous laser sensor, which outputs the position $x(t)$ at time $t$. If the sensor is a bit noisy, we want to average the measurements. To give recent measurements more importance, we use a weight function $w(a)$ based on the age $a$ of the measurement. The smoothed estimate $s(t)$ of the position of the spaceship becomes:
+}
+\begin{equation}
+    s(t) = [x*w](t) = \int_{-\infty}^{\infty} x(\tau)w(t-\tau)d\tau.
+\end{equation}
+
+The weight function $w(a)$ would need to be a probability density function (pdf) to make $s(t)$ a proper weighted average. For instance, the exponential distribution has a suiting pdf, also because negative ages (i.e. looking into the future) would get a weight of zero.\\
+
+
+\subsection{Discrete convolutions}
+
+Convolutions do not have to be based on time, it could be any kind of variable. An option that is often used in the applications of ConvNets is \textit{location}, specifically the location of a pixel on an image. The convolution now has two dimensions since a pixel location is indicated by row $i$ and column $j$. The integral will be discretized, and the commutative property of convolution is used to arrive at:
+
+\begin{equation}\label{eq:sums}
+    S(i,j) = \sum_m \sum_n I(i-m,j-n)K(m,n).
+\end{equation}
+
+The function $I(i,j)$ stands for the input, analogous to the previous $x(t)$, and $K(i,j)$ is called the kernel, much alike the weights from before. In the example of \autoref{fig:kern} the indices $m$ and $n$ from equation \eqref{eq:sums} run over three different values. The kernel thus has a size of 3x3, with the values:
+
+\begin{equation*}
+    K = 
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 1 
+    \end{bmatrix}.
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \animategraphics[width=0.8\textwidth,keepaspectratio,autoplay,loop]{0.8}{images/kernel/}{0}{9}
+    \caption{Computations done with a discrete convolution. Source: \cite{stanf}. Open this pdf in Adobe Acrobat Reader to see the animation.}
+    \label{fig:kern}
+\end{figure}
+
+
+
+
+Computation of 2 is done by multiplying ...
+Visit the source of the image to see a clear animation.
+
+NO DO IT BRAM
+
+
+
+
+
+
+
+
+more about discrete conv on page 19:
+
+https://www.slideshare.net/Alexdfar/origin-adn-history-of-convolution
+
+
+
+
+
+
+
+
+
