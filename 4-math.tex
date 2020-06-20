@@ -1,11 +1,11 @@
 \section{What are the mathematical foundations of a ConvNet?}
 \label{sec:math}
 
-There are a couple of mathematical functions that ConvNets are built upon. We will discuss the important ones in this section.
+There are many fields of mathematics that contribute to the functionality of neural networks. They depend heavily on linear algebra, probability theory, and optimization. In this section we will focus on the operation that gives convolutional neural networks their name.
 
 \subsection{Convolution integral}
 
-The functionality that gives convolutional neural networks its name, is the convolution operation. The operation is a way to blend two functions together \cite{wolf} and can be used continuously or discretely. It is often denoted by the symbol $*$. A possible definition for the continous case is:
+One of the most important operations in a ConvNet is the convolution operation. This mathematical operation is a way to blend two functions together \cite{wolf} and can be used continuously or discretely. It is often denoted by the symbol $*$. A possible definition for the continous case is:
 
 \begin{equation}\label{eq:convo}
     [f * g] (t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau) d\tau.
@@ -30,42 +30,51 @@ Convolutions do not have to be based on time, it could be any kind of variable. 
     S(i,j) = \sum_m \sum_n I(i-m,j-n)K(m,n).
 \end{equation}
 
-The function $I(i,j)$ stands for the input, analogous to the previous $x(t)$, and $K(i,j)$ is called the kernel, much alike the weights from before. In the example of \autoref{fig:kern} the indices $m$ and $n$ from equation \eqref{eq:sums} run over three different values. The kernel thus has a size of 3x3, with the values:
+The function $I(i,j)$ stands for the input, analogous to the previous $x(t)$, and $K(i,j)$ is called the kernel, much alike the weights from before. In the simplified example of \autoref{fig:kern} the indices $m$ and $n$ from equation \eqref{eq:sums} both run over three different values. The kernel thus has a size of 3x3 in this case, with the values:
 
 \begin{equation*}
     K = 
     \begin{bmatrix}
         1 & 0 & 1 \\
         0 & 1 & 0 \\
-        1 & 0 & 1 
+        1 & 0 & 1 \\
     \end{bmatrix}.
 \end{equation*}
 
 \begin{figure}
     \centering
     \animategraphics[width=0.8\textwidth,keepaspectratio,autoplay,loop]{0.8}{images/kernel/}{0}{9}
-    \caption{Computations done with a discrete convolution. Source: \cite{stanf}. Open this pdf in Adobe Acrobat Reader to see the animation.}
+    \caption{Computations done by a discrete convolution. Source: \cite{stanf}. Open this pdf in Adobe Acrobat Reader to see the animation.}
     \label{fig:kern}
+\end{figure}
+
+The kernel gets multiplied with a subset of the image in an element-wise fashion, much like the Hadamard product for matrices. Except in this case the outcomes are all summed together to form one pixel in the convolved feature map.\\
+
+The discrete version of the convolution integral was probably introduced many years later than its continuous sibling. It is difficult to say exactly when, but one of the first appearances of a discrete convolution that we know of was penned by Cauchy in 1821 \cite{tor}. It has been employed in probability, statistics, and it's seen as the most important technique in digital signal processing \cite[Ch. 6]{dsp}.\\
+
+Within ConvNets, the convolutions are used to extract certain features of an image. For example, the kernel from equation \eqref{eq:outline} can be used to get a more focussed outline of a picture \cite{visual}. In \autoref{fig:outline} you see the outcome of one convolution layer applied to the earlier picture of Dr. Fukushima.
+
+\begin{equation}\label{eq:outline}
+    K =
+    \begin{bmatrix}
+     -1 & -1 & -1 \\
+     -1 & 8 & -1 \\
+     -1 & -1 & -1 \\
+    \end{bmatrix}.
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/Fukushima-outline.png}
+    \caption{The outlines of Fukushima's portret. Made with \cite{visual}}
+    \label{fig:outline}
 \end{figure}
 
 
 
+%more about discrete conv on page 19:
 
-Computation of 2 is done by multiplying ...
-Visit the source of the image to see a clear animation.
-
-NO DO IT BRAM
-
-
-
-
-
-
-
-
-more about discrete conv on page 19:
-
-https://www.slideshare.net/Alexdfar/origin-adn-history-of-convolution
+%https://www.slideshare.net/Alexdfar/origin-adn-history-of-convolution
 
 
 

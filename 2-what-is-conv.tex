@@ -47,11 +47,17 @@ Convolutional neural networks differ from regular neural networks in a couple of
     \label{fig:indir}
 \end{figure}
 
-Another difference, from which ConvNets derive their name, is the fact that ConvNets use the convolution operation instead of regular matrix multiplication. More on this in \autoref{sec:math}. A neural network is called convolutional, if at least one of its layers uses the convolution operation \cite[Ch. 9]{dl-book}. There can still be some fully connected layers in a ConvNet.\\
-
+Another difference, from which ConvNets derive their name, is the fact that ConvNets use the convolution operation instead of regular matrix multiplication. We will go deeper into this topic in \autoref{sec:math}. A neural network is called convolutional, if at least one of its layers uses the convolution operation \cite[Ch. 9]{dl-book}.\\
 %% eerst nog een stukje over hoezo regular matrix multiplication
 
+There can still be some fully connected layers in a ConvNet, and actually this typically happens near the end of the network. For example, a ConvNet that is used to classify an image into the right category benefits from the fully connected layers to decifer the meaning of the feautures that the convolutional layers have extracted from the image. See \autoref{fig:typ}.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/typicalConvNet.png}
+    \caption{A typical ConvNet architecture. Source: \cite{convnet}}
+    \label{fig:typ}
+\end{figure}
 
 
 
