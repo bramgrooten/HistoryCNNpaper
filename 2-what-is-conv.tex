@@ -36,7 +36,7 @@ A neural network arises when many of such artifical neurons are connected togeth
     \label{fig:full}
 \end{figure}
 
-\subsection{Convolution}
+\subsection{A different operation}
 
 Convolutional neural networks differ from regular neural networks in a couple of ways. First of all, they are much sparser in their connectivity, which means that a neuron is not influenced by all the neurons in the previous layer. However, particular neuron can still depend on all the values of a deeper layer indirectly, as shown in \autoref{fig:indir}.\\
 
@@ -50,7 +50,7 @@ Convolutional neural networks differ from regular neural networks in a couple of
 Another difference, from which ConvNets derive their name, is the fact that ConvNets use the convolution operation instead of regular matrix multiplication. We will go deeper into this topic in \autoref{sec:math}. A neural network is called convolutional, if at least one of its layers uses the convolution operation \cite[Ch. 9]{dl-book}.\\
 %% eerst nog een stukje over hoezo regular matrix multiplication
 
-There can still be some fully connected layers in a ConvNet, and actually this typically happens near the end of the network. For example, a ConvNet that is used to classify an image into the right category benefits from the fully connected layers to decifer the meaning of the feautures that the convolutional layers have extracted from the image. See \autoref{fig:typ}.
+There can still be some fully connected layers in a ConvNet, and actually this typically happens near the end of the network. For example, a ConvNet that is used to classify images into categories benefits from the fully connected layers to decifer the meaning of the feautures that the convolutional layers have extracted from the image. See \autoref{fig:typ}.
 
 \begin{figure}
     \centering
@@ -59,6 +59,7 @@ There can still be some fully connected layers in a ConvNet, and actually this t
     \label{fig:typ}
 \end{figure}
 
+% https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464
 
 
 

@@ -1,7 +1,7 @@
 \section{What are the mathematical foundations of a ConvNet?}
 \label{sec:math}
 
-There are many fields of mathematics that contribute to the functionality of neural networks. They depend heavily on linear algebra, probability theory, and optimization. In this section we will focus on the operation that gives convolutional neural networks their name.
+There are many fields of mathematics that contribute to the functionality of neural networks. They depend heavily on linear algebra, probability theory, and optimization. ConvNets use multiple kinds of mathematics as well. However, in this section we will focus on the operation that gives convolutional neural networks their name.
 
 \subsection{Convolution integral}
 
@@ -44,7 +44,7 @@ The function $I(i,j)$ stands for the input, analogous to the previous $x(t)$, an
 \begin{figure}
     \centering
     \animategraphics[width=0.8\textwidth,keepaspectratio,autoplay,loop]{0.8}{images/kernel/}{0}{9}
-    \caption{Computations done by a discrete convolution. Source: \cite{stanf}. Open this pdf in Adobe Acrobat Reader to see the animation.}
+    \caption{Computations done by a discrete convolution. Source: \cite{stanf}. Open this pdf file in Adobe Acrobat Reader to see the animation.}
     \label{fig:kern}
 \end{figure}
 
@@ -52,7 +52,7 @@ The kernel gets multiplied with a subset of the image in an element-wise fashion
 
 The discrete version of the convolution integral was probably introduced many years later than its continuous sibling. It is difficult to say exactly when, but one of the first appearances of a discrete convolution that we know of was penned by Cauchy in 1821 \cite{tor}. It has been employed in probability, statistics, and it's seen as the most important technique in digital signal processing \cite[Ch. 6]{dsp}.\\
 
-Within ConvNets, the convolutions are used to extract certain features of an image. For example, the kernel from equation \eqref{eq:outline} can be used to get a more focussed outline of a picture \cite{visual}. In \autoref{fig:outline} you see the outcome of one convolution layer applied to the earlier picture of Dr. Fukushima.
+Within ConvNets, the convolutions are used to extract certain features of an image. For example, the kernel from equation \eqref{eq:outline} can be used to get a more focussed outline of a picture \cite{visual}. In \autoref{fig:outline} you see the outcome of one convolution layer applied to the earlier picture of Dr. Fukushima. These edges within an image help to classify the content of the image in deeper layers of the ConvNet.
 
 \begin{equation}\label{eq:outline}
     K =
@@ -65,7 +65,7 @@ Within ConvNets, the convolutions are used to extract certain features of an ima
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{images/Fukushima-outline.png}
+    \includegraphics[width=0.45\textwidth]{images/Fukushima-outline.png}
     \caption{The outlines of Fukushima's portret. Made with \cite{visual}}
     \label{fig:outline}
 \end{figure}
